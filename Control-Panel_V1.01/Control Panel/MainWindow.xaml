@@ -1,0 +1,57 @@
+﻿<Window x:Class="Control_Panel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Control_Panel" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp"
+        mc:Ignorable="d" ResizeMode="CanResize"
+        Title="Control Panel" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="0"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0"></ColumnDefinition>
+                <ColumnDefinition Width="AUTO"></ColumnDefinition>
+                <ColumnDefinition Width="0"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="0"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TabControl Grid.Column="1" Grid.Row="1">
+                <TabItem Header="WEBCAM VIEW">
+                    <Grid>
+                        <local:WebCam_Module></local:WebCam_Module>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="SENSOR DATA">
+
+                </TabItem>
+                <TabItem Header="MAP DATA">
+					<local:RoverSensorAndMapModule />
+				</TabItem>
+            </TabControl>
+            <Expander Grid.Column="3" Grid.Row="1" ExpandDirection="Right">
+                <Grid>
+                    <local:Rover_Console></local:Rover_Console>
+                </Grid>
+            </Expander>
+        </Grid>
+		<Grid Grid.Column="1" Grid.Row="3" x:Name="rvr_cntrl_mdl">
+		</Grid>
+	</Grid>
+</Window>

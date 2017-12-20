@@ -1,0 +1,198 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	x:Class="Window1"
+	x:Name="Window"
+	Title="howto_xaml_robot_arm"
+	Width="480" Height="430">
+	<Window.Background>
+		<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="Lime" Offset="0"/>
+			<GradientStop Color="Green" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Window.Resources>
+		<sys:Double x:Key="Cx">225</sys:Double>
+		<sys:Double x:Key="Cy">125</sys:Double>
+		<sys:Double x:Key="L1">75</sys:Double>
+		<sys:Double x:Key="L2">50</sys:Double>
+		<sys:Double x:Key="L3">30</sys:Double>
+	</Window.Resources>
+	<Grid>
+		<Grid.Resources>
+			<Style TargetType="Slider">
+				<Setter Property="Margin" Value="2"/>
+				<Setter Property="Minimum" Value="-160"/>
+				<Setter Property="Maximum" Value="160"/>
+				<Setter Property="TickFrequency" Value="10"/>
+				<Setter Property="TickPlacement" Value="BottomRight"/>
+			</Style>
+			<Style TargetType="Ellipse">
+				<Setter Property="Fill" Value="Red"/>
+				<Setter Property="Width" Value="11"/>
+				<Setter Property="Height" Value="11"/>
+			</Style>
+			<Style TargetType="Line">
+				<Setter Property="Stroke" Value="Green"/>
+			</Style>
+		</Grid.Resources>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="30"/>
+		</Grid.RowDefinitions>
+		<Border Grid.Row="0" Width="450" Height="250"
+		 BorderBrush="Black" BorderThickness="1" Background="LightBlue">
+			<Border.BitmapEffect>
+				<BevelBitmapEffect EdgeProfile="BulgedUp" />
+			</Border.BitmapEffect>
+			<Canvas>
+				<!-- Shoulder joint -->
+				<Ellipse>
+					<Ellipse.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="-6" Y="-6"/> <!-- Center the ellipse at (0, 0). -->
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Ellipse.RenderTransform>
+				</Ellipse>
+				
+				<!-- First arm segment -->
+				<Line X1="0" Y1="0" X2="{StaticResource L1}" Y2="0">
+					<Line.RenderTransform>
+						<TransformGroup>
+							<RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Line.RenderTransform>
+				</Line>
+
+				<!-- Elbow joint -->
+				<Ellipse>
+					<Ellipse.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="-6" Y="-6"/> <!-- Center the ellipse at (0, 0). -->
+							<TranslateTransform X="{StaticResource L1}" Y="0"/>
+							<RotateTransform CenterX="0" CenterY="0" Angle="{Binding ElementName=sliJoint1, Path=Value}"/>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Ellipse.RenderTransform>
+				</Ellipse>
+
+				<!-- Second arm segment -->
+				<Line X1="0" Y1="0" X2="{StaticResource L2}" Y2="0">
+					<Line.RenderTransform>
+						<TransformGroup>
+							<RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L1}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Line.RenderTransform>
+				</Line>
+
+				<!-- Wrist joint -->
+				<Ellipse>
+					<Ellipse.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="-6" Y="-6"/> <!-- Center the ellipse at (0, 0). -->
+							<TranslateTransform X="{StaticResource L2}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L1}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Ellipse.RenderTransform>
+				</Ellipse>
+
+				<!-- Third arm segment -->
+				<Line X1="0" Y1="0" X2="{StaticResource L3}" Y2="0">
+					<Line.RenderTransform>
+						<TransformGroup>
+							<RotateTransform Angle="{Binding ElementName=sliJoint3, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L2}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L1}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Line.RenderTransform>
+				</Line>
+
+				<!-- Hand - Palm -->
+				<Line X1="0" Y1="-15" X2="0" Y2="15" Stroke="Black" StrokeThickness="3">
+					<Line.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="{StaticResource L3}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint3, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L2}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L1}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Line.RenderTransform>
+				</Line>
+
+				<!-- Hand - Finger 1 -->
+				<Line X1="0" Y1="0" X2="20" Y2="0" Stroke="Black" StrokeThickness="3">
+					<Line.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="0" Y="{Binding ElementName=sliHand, Path=Value}"/>
+							<ScaleTransform ScaleX="1" ScaleY="-1"/>
+							<TranslateTransform X="{StaticResource L3}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint3, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L2}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L1}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Line.RenderTransform>
+				</Line>
+
+				<!-- Hand - Finger 2 -->
+				<Line X1="0" Y1="0" X2="20" Y2="0" Stroke="Black" StrokeThickness="3">
+					<Line.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="0" Y="{Binding ElementName=sliHand, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L3}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint3, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L2}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/>
+							<TranslateTransform X="{StaticResource L1}" Y="0"/>
+							<RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Line.RenderTransform>
+				</Line>
+				
+				<!-- Axes -->
+				<!--
+				<Line X1="-20" Y1="0" X2="20" Y2="0" Stroke="Black">
+					<Line.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Line.RenderTransform>
+				</Line>
+				<Line X1="0" Y1="-20" X2="0" Y2="20" Stroke="Black">
+					<Line.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/>
+						</TransformGroup>
+					</Line.RenderTransform>
+				</Line>
+				-->
+			</Canvas>
+		</Border>
+		<Slider Grid.Row="1" Name="sliJoint1" Value="-30"/>
+		<Slider Grid.Row="2" Name="sliJoint2" Value="75"/>
+		<Slider Grid.Row="3" Name="sliJoint3" Value="-60"/>
+		<Slider Grid.Row="4" Name="sliHand" Value="10"
+		 Minimum="1" Maximum="10" TickFrequency="1"/>
+	</Grid>
+</Window>

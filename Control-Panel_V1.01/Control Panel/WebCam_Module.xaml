@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Control_Panel.WebCam_Module"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Control_Panel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="we_cam_module">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition Height="AUTO"></RowDefinition>
+                <RowDefinition Height="5"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="1" Grid.Row="1" x:Name="webcam_view_1"></Image>
+            <Image Grid.Column="3" Grid.Row="1" x:Name="webcam_view_2"></Image>
+            <Grid Grid.Column="1" Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="5"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="1" Grid.Row="1" x:Name="web_cam_1_start_btn" Click="web_cam_1_start_btn_Click" Content="Start"></Button>
+                <Button Grid.Column="3" Grid.Row="1" x:Name="web_cam_1_stop_btn" Click="web_cam_1_stop_btn_Click" Content="Stop"></Button>
+                <Button Grid.Column="5" Grid.Row="1" x:Name="web_cam_1_start_record_btn" Click="web_cam_1_start_record_btn_Click" Content="Start_R"></Button>
+                <Button Grid.Column="7" Grid.Row="1" x:Name="web_cam_1_stop_record_btn" Click="web_cam_1_stop_record_btn_Click" Content="Stop_R"></Button>
+            </Grid>
+            <Grid Grid.Column="3" Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="5"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="1" Grid.Row="1" x:Name="web_cam_2_start_btn" Click="web_cam_2_start_btn_Click" Content="Start"></Button>
+                <Button Grid.Column="3" Grid.Row="1" x:Name="web_cam_2_stop_btn" Click="web_cam_2_stop_btn_Click" Content="Stop"></Button>
+                <Button Grid.Column="5" Grid.Row="1" x:Name="web_cam_2_start_record_btn" Click="web_cam_2_start_record_btn_Click" Content="Start_R"></Button>
+                <Button Grid.Column="7" Grid.Row="1" x:Name="web_cam_2_stop_record_btn" Click="web_cam_2_stop_record_btn_Click" Content="Stop_R"></Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

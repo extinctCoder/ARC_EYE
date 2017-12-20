@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Control_Panel"
-        mc:Ignorable="d" ResizeMode="NoResize"
+        mc:Ignorable="d" ResizeMode="NoResize" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp"
         Title="Control Panel" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -49,8 +49,7 @@
                 </Grid>
             </Expander>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="3">
-            <local:Control_Module></local:Control_Module>
-        </Grid>
+		<Grid Grid.Column="1" Grid.Row="3" x:Name="rvr_cntrl_mdl">
+		</Grid>
     </Grid>
 </Window>

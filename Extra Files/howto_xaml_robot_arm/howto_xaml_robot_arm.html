@@ -1,0 +1,337 @@
+<HTML>
+<META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "RodStephens@vb-helper.com" for "http://www.vb-helper.com" on "1998.03.17T18:18-0800" r (n 0 s 0 v 0 l 0))'>
+<HEAD>
+<TITLE>VB Helper: HowTo: Simulate a robot arm with three rotating joints and a hand using XAML code</TITLE>
+<META NAME="Author" CONTENT="Rod Stephens">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Keywords" CONTENT="robot, robotics, arm, drawing, XAML, WPF">
+<META NAME="Keywords" CONTENT="robot, robotics, arm, drawing, XAML, WPF">
+<META NAME="Description" CONTENT="VB Helper: HowTo: Simulate a robot arm with three rotating joints and a hand using XAML code">
+<META NAME="Copyright" CONTENT="Copyright 1997-2008, Rocky Mountain Computer Consulting, Inc.">
+<META NAME="Rating" CONTENT="General">
+<META NAME="Robots" CONTENT="All">
+<LINK REL="icon" HREF="http://www.vb-helper.com/vbhelper_icon.ico">
+</HEAD>
+
+<BODY BGCOLOR="#E1F3FF" BACKGROUND="bg_blue.jpg">
+
+  <!-- This table contains the banner, menu column, and content. -->
+  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+    <!-- ****** -->
+    <!-- Banner -->
+    <!-- ****** -->
+    <TR><TD>
+      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Left">
+        <TR>
+          <TD BACKGROUND="banner_mid.jpg"><IMG SRC="banner_l.jpg" WIDTH="410" HEIGHT="64"></TD>
+          <TD BGCOLOR="#E1F3FF"><IMG SRC="banner_r.jpg" WIDTH="32" HEIGHT="64"></TD>
+        </TR>
+      </TABLE>
+    </TD></TR>
+    <TR><TD>&nbsp;</TD></TR>
+
+    <!-- Menu column and content -->
+    <TR><TD>
+      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="2" CELLPADDING="0">
+        <!-- *********** -->
+        <!-- Menu column -->
+        <!-- *********** -->
+        <TR>
+          <TD ALIGN="Left" VALIGN="Top">
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <!-- Menu top -->
+              <TR>
+                <TD><IMG SRC="blue_ul.jpg" WIDTH="16" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_um.jpg" WIDTH="93" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_ur.jpg" WIDTH="16" HEIGHT="16"></TD>
+              </TR>
+
+              <!-- Menu entries -->
+              <TR BGCOLOR="#7FCFFF">
+                <TD BACKGROUND="blue_l.jpg" WIDTH="16">&nbsp;</TD>
+                <TD><CENTER>
+                  <A HREF="index.html"><B><FONT SIZE="+1">Home</FONT></B></A><BR>
+                  <A HREF="search.html"><B>Search</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="whats_new.html"><B>What's New</B></A><BR>
+                  <A HREF="index_categories.html"><B>Index</B></A><BR>
+                  <A HREF="books.html"><B>Books</B></A><BR>
+                  <A HREF="links.html"><B>Links</B></A><BR>
+                  <A HREF="http://www.topica.com/lists/VBHelperQA/read"><B>Q &amp; A</B></A><BR>
+                  <A HREF="newsletter.html"><B>Newsletter</B></A><BR>
+                  <A HREF="banners.html"><B>Banners</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="http://astore.amazon.com/vbhelper/about"><B>Bookstore...</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="mailto:feedback@vb-helper.com"><B>Feedback</B></A><BR>
+                  <A HREF="tip_jar.html"><B>Tip Jar</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="feed.xml"><IMG SRC="xml_rss.jpg" BORDER="0" ALT="XML RSS Feed"></A><BR>
+                </CENTER></TD>
+                <TD BACKGROUND="blue_r.jpg" WIDTH="16">&nbsp;</TD>
+              </TR>
+
+              <!-- Menu bottom -->
+              <TR>
+                <TD><IMG SRC="blue_ll.jpg" WIDTH="16" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_lm.jpg" WIDTH="93" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_lr.jpg" WIDTH="16" HEIGHT="16"></TD>
+              </TR>
+
+              <TR><TD HEIGHT="50" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- ******** -->
+              <!-- Partners -->
+              <!-- ******** -->
+
+              <!-- MVP -->
+              <TR><TD COLSPAN="3"><A HREF="http://www.mvps.org"><IMG SRC="mvp_logo.gif" BORDER="0"></A></TR></TD>
+              <TR><TD HEIGHT="20" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- MSDN VB Community -->
+              <TR><TD COLSPAN="3" ALIGN="Center">
+<A HREF="http://msdn.microsoft.com/vbasic/community/default.aspx">MSDN Visual Basic Community</A>
+              </TD></TR>
+              <TR><TD HEIGHT="50" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Amazon Recommends -->
+              <TR><TD COLSPAN="3" ALIGN="Center">
+<!-- -->
+                <SCRIPT SRC="http://rcm.amazon.com/e/cm?t=vbhelper&l=rc1&p=2&o=1" TYPE="text/JavaScript"></SCRIPT>
+<!-- -->
+                <NOSCRIPT>
+                  <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="125">
+                    <TR><TD>
+                      <MAP NAME="boxmap">
+                        <AREA SHAPE="RECT" COORDS="18, 263, 105, 274" HREF="http://rcm.amazon.com/e/cm/privacy-policy.html?o=1">
+                        <AREA COORDS="0,0,10000,10000" HREF="http://www.amazon.com/exec/obidos/redirect-home/vbhelper">
+                      </MAP>
+                      <img src="http://rcm-images.amazon.com/images/G/01/associates/amzn_recommends/gnbox125x275.gif" width="125" height="275" border="0" usemap="#boxmap">
+                    </TD></TR>
+                  </TABLE>
+                </NOSCRIPT>
+              </TD></TR>
+              <TR><TD HEIGHT="50" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Wiley -->
+              <TR><TD COLSPAN="3" ALIGN="Center" BACKGROUND="sandpaper.gif"><A HREF="http://service.bfast.com/bfast/click?bfmid=37920629&siteid=40078832&bfpage=computer_science" TARGET="_top"><IMG SRC="wiley_logo.gif" BORDER="0" ALIGN="Center" WIDTH="77" HEIGHT="105"></TD></TR>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Que -->
+              <TR><TD COLSPAN="3" ALIGN="Center"><A HREF="http://www.quepublishing.com"><IMG SRC="que.gif" BORDER="0" ALIGN="Center" WIDTH="121" HEIGHT="36"></A></TD></TR>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Amazon -->
+              <TR><TD COLSPAN="3" ALIGN="Center"><A HREF="amazon.html"><IMG SRC="amazon_logo.gif" BORDER="0" ALIGN="Center" WIDTH="68" HEIGHT="65"></A></TD></TR>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- ********** -->
+              <!-- More stuff -->
+              <!-- ********** -->
+
+            </TABLE>
+          </TD>
+
+          <!-- A little space between the menus and content -->
+          <TD WIDTH="5">&nbsp;</TD>
+
+          <!-- ******* -->
+          <!-- Content -->
+          <!-- ******* -->
+          <TD WIDTH="100%" ALIGN="Left" VALIGN="Top">
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <!-- How To Summary -->
+              <TR><TD>
+                <TABLE WIDTH="100%" BORDER="2" CELLSPACING="0" CELLPADDING="2">
+                  <TR><TH ALIGN="Left">Title</TH><TD WIDTH="100%">Simulate a robot arm with three rotating joints and a hand using XAML code</TD></TR>
+                  <TR><TH ALIGN="Left">Description</TH><TD WIDTH="100%">This example shows how to simulate a robot arm with three rotating joints and a hand using XAML code</TD></TR>
+                  <TR><TH ALIGN="Left">Keywords</TH><TD>robot, robotics, arm, drawing, XAML, WPF</TD></TR>
+                  <TR><TH ALIGN="Left">Categories</TH><TD>Graphics, WPF, VB.NET</TD></TR>
+                </TABLE>
+              </TD></TR>
+
+              <!-- Text content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR><TD>
+<IMG SRC="howto_xaml_robot_arm.jpg" ALIGN="Right">
+<P>
+The basic idea is to consider the stages of the arm one after another and use transformations to move from one to the next.
+<P>
+Suppose the three arm segments have lengths L1, L2, and L3 and the angles of rotation at the three joints are A1, A2, and A3.
+<P>
+The first joint rotates the arm by angle A1 at a fixed shoulder. The second joint is translated distance L1 away in the direction of the first arm segment.
+<P>
+The second joint rotates the arm by angle A2 at the "elbow." The third joint is translated distance L2 away in the direction of the second arm segment.
+<P>
+The third joint rotates the arm by angle A3 at the "wrist." The end of the arm is translated distance L3 away in the direction of the third arm segment.
+<P>
+<HR WIDTH="75%">
+<P>
+To draw the arm, start by drawing the shoulder at the origin. This example adds a translation first to center the shoulder in the drawing area.
+<P>
+Next the code applies the rotation A1 at the shoulder and draws a rectangle representing the first arm segment. There are is one tricky issue here.
+<P>
+The rotation is <B>prepended</B> to the previous translation so the rotation occurs before the translation that centers the shoulder. Imagine the arm in its own world coordinate space with the shoulder at the origin. The program draws a horizontal rectangle representing the first arm segment. The transformations then rotate it to the correct angle and translate it so the shoulder is centered. This puts the first arm segment in the correct position.
+<P>
+Next the code must draw the elbow joint. To do this, it <B>prepends</B> a translation of distance L1 in the X direction and 0 in the Y direction. It then draws the elbow joint at the origin.
+<P>
+Again imagine the arm in world coordinate space and suppose you draw the elbow at the origin. The new translation moves the joint to (L1, 0). The rotation of angle A1 rotates the joint to match the rotation of the first arm segment. Finally the shoulder's translation moves the whole thing so the base of the first arm segment is centered in the drawing area.
+<P>
+The code continues like this as many times as necessary to draw each arm segment and joint. In eachv step, it prepends the new translations and rotations.
+<P>
+<HR WIDTH="75%">
+<P>
+The following code shows how the program draws the third arm segment. Notice how is uses binding to use the angles selected by the slider controls sliJoint1, sliJoint2, and sliJoint3. The values L1 and L2 are static resource values giving the arm lengths. The values Cx and Cy give the center of the drawing area.
+              </TD></TR>
+
+              <!-- Code content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR>
+                <TD BACKGROUND="computer_paper.jpg">
+                  <PRE><FONT NAME="Courier New" POINT-SIZE="10" SIZE="2">&lt;!-- Third arm segment --&gt;
+&lt;Line X1="0" Y1="0" X2="{StaticResource L3}" Y2="0"&gt;
+  &lt;Line.RenderTransform&gt;
+    &lt;TransformGroup&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint3, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource L2}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource L1}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/&gt;
+    &lt;/TransformGroup&gt;
+  &lt;/Line.RenderTransform&gt;
+&lt;/Line&gt;</FONT></PRE>
+              </TD></TR>
+
+              <!-- Text content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR><TD>
+The code finishes by drawing a hand with two fingers. As it does for the rest of the arm, the code draws the pieces of the hand at the origin and uses transformations to move it where it belongs. The following code shows how the program draws the hand. There are lots of details but the only real tricks is how the program draws Finger 1. The sliHand slider control determines how far apart the fingers are. The program uses its value directly to draw Finger 2. To draw Finger 1, it uses a ScaleTransform to reflect the translation across the X axis, making the finger move the negative of the distances selected by sliHand.
+              </TD></TR>
+
+              <!-- Code content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR>
+                <TD BACKGROUND="computer_paper.jpg">
+                  <PRE><FONT NAME="Courier New" POINT-SIZE="10" SIZE="2">&lt;!-- Hand - Palm --&gt;
+&lt;Line X1="0" Y1="-15" X2="0" Y2="15" Stroke="Black" StrokeThickness="3"&gt;
+  &lt;Line.RenderTransform&gt;
+    &lt;TransformGroup&gt;
+      &lt;TranslateTransform X="{StaticResource L3}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint3, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource L2}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource L1}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/&gt;
+    &lt;/TransformGroup&gt;
+  &lt;/Line.RenderTransform&gt;
+&lt;/Line&gt;
+
+&lt;!-- Hand - Finger 1 --&gt;
+&lt;Line X1="0" Y1="0" X2="20" Y2="0" Stroke="Black" StrokeThickness="3"&gt;
+  &lt;Line.RenderTransform&gt;
+    &lt;TransformGroup&gt;
+      &lt;TranslateTransform X="0" Y="{Binding ElementName=sliHand, Path=Value}"/&gt;
+      &lt;ScaleTransform ScaleX="1" ScaleY="-1"/&gt;
+      &lt;TranslateTransform X="{StaticResource L3}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint3, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource L2}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource L1}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/&gt;
+    &lt;/TransformGroup&gt;
+  &lt;/Line.RenderTransform&gt;
+&lt;/Line&gt;
+
+&lt;!-- Hand - Finger 2 --&gt;
+&lt;Line X1="0" Y1="0" X2="20" Y2="0" Stroke="Black" StrokeThickness="3"&gt;
+  &lt;Line.RenderTransform&gt;
+    &lt;TransformGroup&gt;
+      &lt;TranslateTransform X="0" Y="{Binding ElementName=sliHand, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource L3}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint3, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource L2}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint2, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource L1}" Y="0"/&gt;
+      &lt;RotateTransform Angle="{Binding ElementName=sliJoint1, Path=Value}"/&gt;
+      &lt;TranslateTransform X="{StaticResource Cx}" Y="{StaticResource Cy}"/&gt;
+    &lt;/TransformGroup&gt;
+  &lt;/Line.RenderTransform&gt;
+&lt;/Line&gt;</FONT></PRE>
+              </TD></TR>
+
+              <!-- *************** -->
+              <!-- Download button -->
+              <!-- *************** -->
+
+              <TR><TD><FONT SIZE="-2">&nbsp;</FONT></TD></TR>
+              <TR><TD ALIGN="Center"><A HREF="HowTo/howto_xaml_robot_arm.zip"><IMG SRC="download.jpg" BORDER="0"></A></TD></TR>
+              <TR><TD><FONT SIZE="-2">&nbsp;</FONT></TD></TR>
+
+            </TABLE> <!-- End content table -->
+          </TD> <!-- End content column -->
+
+          <!-- ************** -->
+          <!-- Google AdSense -->
+          <!-- ************** -->
+          <TD WIDTH="120" ALIGN="Right" VALIGN="Top">
+            <TABLE WIDTH="165" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="Right">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-6627515316741006";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_channel ="4974732445";
+google_color_border = "00CC66";
+google_color_bg = "99FF99";
+google_color_link = "0000FF";
+google_color_url = "0033FF";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+              </TD></TR>
+            </TABLE> <!-- End Google AdSense table -->
+          </TD> <!-- End Google AdSense column -->
+
+
+        </TR> <!-- End row containing menu column and content -->
+      </TABLE> <!-- End table containing menu column and content -->
+    </TD></TR>
+
+    <!-- ****** -->
+    <!-- Footer -->
+    <!-- ****** -->
+    <TR><TD WIDTH="100%">
+      <TABLE WIDTH="100%" BORDER="0" BGCOLOR="#87CEFA" CELLSPACING="0" CELLPADDING="0">
+        <!-- Top row -->
+        <TR>
+          <TD BGCOLOR="#E1F3FF" ALIGN="Right" WIDTH="16"><IMG SRC="blue_ul.jpg" WIDTH="16" HEIGHT="16"></TD>
+          <TD BACKGROUND="blue_um.jpg" COLSPAN="2" ALIGN="Center"><FONT SIZE="-2">
+            Copyright &copy; 1997-2008 Rocky Mountain Computer Consulting, Inc. &nbsp; All rights reserved.
+          </FONT></TD>
+          <TD BGCOLOR="#E1F3FF"><IMG SRC="blue_ur.jpg" WIDTH="16" HEIGHT="16"></TD>
+        </TR>
+
+        <!-- Bottom row -->
+        <TR>
+          <TD BGCOLOR="#E1F3FF" ALIGN="Right" WIDTH="16"><IMG SRC="blue_ll.jpg" WIDTH="16" HEIGHT="16"></TD>
+          <TD BACKGROUND="blue_lm.jpg"><FONT SIZE="-2">
+            &nbsp;<SCRIPT LANGUAGE=JavaScript>document.write(document.URL)</SCRIPT></FONT></TD>
+          <TD BACKGROUND="blue_lm.jpg" ALIGN="Right"><FONT SIZE="-2">
+            Updated <SCRIPT LANGUAGE=JavaScript>document.write(document.lastModified)</SCRIPT> &nbsp;
+          </FONT></TD>
+          <TD BGCOLOR="#E1F3FF"><IMG SRC="blue_lr.jpg" WIDTH="16" HEIGHT="16"></TD>
+        </TR>
+      </TABLE>
+    </TD></TR>
+  </TABLE> <!-- End table containing banner, menu column + content, and footer -->
+
+</BODY>
+</HTML>

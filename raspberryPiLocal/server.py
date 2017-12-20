@@ -5,7 +5,7 @@
 
 #storedValue = "msg"
 
-#def setupServer():
+# def setupServer():
 #    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #    print("SOCKET CREATED")
 #    try:
@@ -15,13 +15,13 @@
 #    print("Socket bind complete")
 #    return s
 
-#def setupConnection():
+# def setupConnection():
 #    s.listen(1)
 #    conn, addresss = s.accept()
 #    print("Connected to: "+ address[0] + " : " + str(sddress[1]))
 #    return conn
 
-#def dataTransfer(conn):
+# def dataTransfer(conn):
 #    while(1):
 #        data = conn.recv(1024)
 #        data = data.decode('utf-8')
@@ -33,21 +33,21 @@
 
 #s = setupServer()
 
-#while(1):
+# while(1):
 #    try:
 #       conn = setupConnection()
 #       dataTransfer(conn)
 #    except:
 #        break
-    
+
 
 import socket
 import serial
-TCP_IP = '192.168.0.101'
-TCP_PORT = 5005
+TCP_IP = '192.168.0.113'
+TCP_PORT = 8888
 BUFFER_SIZE = 1024
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=0)
- 
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((TCP_IP, TCP_PORT))
 print("server started")
@@ -55,7 +55,7 @@ s.listen(1)
 while 1:
     try:
         conn, addr = s.accept()
-        print 'client connected, address: ', addr    
+        print 'client connected, address: ', addr
         while 1:
             try:
                 print("waiting for command")
@@ -70,7 +70,7 @@ while 1:
                 elif(data == '3'):
                     data = "closing connection"
                 elif(data == '4'):
-                    data = "closing server"   
+                    data = "closing server"
                 else:
                     data = "wrong command"
                 print(data)
@@ -78,7 +78,7 @@ while 1:
                 if (data == "closing connection"):
                     conn.close()
                     print("connection colsed")
-                    break 
+                    break
                 elif(data == "closing server"):
                     break
             except:
@@ -89,11 +89,11 @@ while 1:
             conn.close()
             print("waiting for client")
         else:
-         print("connection problem")
+            print("connection problem")
     finally:
         if (data == "closing server"):
             conn.close()
             print("connection colsed")
-            break         
+            break
 s.close()
 print("server closed")

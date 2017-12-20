@@ -1,0 +1,167 @@
+﻿<Controls:MetroWindow x:Class="ARC_EYE.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:ARC_EYE"
+		xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+		Title="AIUB ROBOTIC CREW - 2017" MinHeight="652.8" MinWidth="1161.1" 
+		mc:Ignorable="d" ShowTitleBar="True" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp">
+	<i:Interaction.Behaviors>
+		<Behaviours:BorderlessWindowBehavior></Behaviours:BorderlessWindowBehavior>
+	</i:Interaction.Behaviors>
+	<Controls:MetroWindow.RightWindowCommands>
+		<Controls:WindowCommands>
+			<Button x:Name="abt_arc_eye_btn" Click="abt_arc_eye_btn_Click" Content="info"></Button>
+		</Controls:WindowCommands>
+	</Controls:MetroWindow.RightWindowCommands>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+			<ColumnDefinition Width="1"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="1"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid Grid.Column="1" Grid.Row="1"  x:Name="ua_container">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+				<ColumnDefinition Width="AUTO"></ColumnDefinition>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"></RowDefinition>
+				<RowDefinition Height="AUTO"></RowDefinition>
+				<RowDefinition Height="*"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid Grid.Column="1" Grid.Row="1" x:Name="lgin_auth_plc"></Grid>
+		</Grid>
+		<Grid Grid.Column="1" Grid.Row="1" x:Name="min_container">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1"></ColumnDefinition>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+				<ColumnDefinition Width="1"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1"></RowDefinition>
+				<RowDefinition Height="*"></RowDefinition>
+				<RowDefinition Height="1"></RowDefinition>
+				<RowDefinition Height="AUTO"></RowDefinition>
+				<RowDefinition Height="1"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid Grid.Column="1" Grid.Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1"></ColumnDefinition>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+					<ColumnDefinition Width="1"></ColumnDefinition>
+					<ColumnDefinition Width="AUTO"></ColumnDefinition>
+					<ColumnDefinition Width="1"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1"></RowDefinition>
+					<RowDefinition Height="*"></RowDefinition>
+					<RowDefinition Height="1"></RowDefinition>
+				</Grid.RowDefinitions>
+				<Grid Grid.Column="1" Grid.Row="1">
+					<TabControl TabStripPlacement="Top" >
+						<TabControl.Resources>
+							<Style TargetType="{x:Type TabPanel}">
+								<Setter Property="HorizontalAlignment" Value="Center"></Setter>
+							</Style>
+						</TabControl.Resources>
+						<TabItem Header="  Rover Control Panel  ">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="1"></ColumnDefinition>
+									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="1"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="1"></RowDefinition>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="1"></RowDefinition>
+									<RowDefinition Height="AUTO"></RowDefinition>
+									<RowDefinition Height="1"></RowDefinition>
+								</Grid.RowDefinitions>
+								<Grid Grid.Column="1" Grid.Row="1" x:Name="webcam_viw_plc"></Grid>
+								<Grid Grid.Column="1" Grid.Row="3">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1"></ColumnDefinition>
+										<ColumnDefinition Width="*"></ColumnDefinition>
+										<ColumnDefinition Width="1"></ColumnDefinition>
+										<ColumnDefinition Width="*"></ColumnDefinition>
+										<ColumnDefinition Width="1"></ColumnDefinition>
+										<ColumnDefinition Width="*"></ColumnDefinition>
+										<ColumnDefinition Width="1"></ColumnDefinition>
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="1"></RowDefinition>
+										<RowDefinition Height="*"></RowDefinition>
+										<RowDefinition Height="1"></RowDefinition>
+									</Grid.RowDefinitions>
+									<Grid Grid.Column="1" Grid.Row="1" x:Name="rvr_visulization_plc"></Grid>
+									<Grid Grid.Column="3" Grid.Row="1" x:Name="rvr_movment_plc"></Grid>
+									<Grid Grid.Column="5" Grid.Row="1" x:Name="arm_visulization_plc"></Grid>
+								</Grid>
+							</Grid>
+						</TabItem>
+						<TabItem Header="  Rover Data Monitor Panel  ">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="1"></ColumnDefinition>
+									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="1"></ColumnDefinition>
+									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="1"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="1"></RowDefinition>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="1"></RowDefinition>
+								</Grid.RowDefinitions>
+								<Grid Grid.Column="1" Grid.Row="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1"></ColumnDefinition>
+										<ColumnDefinition Width="*"></ColumnDefinition>
+										<ColumnDefinition Width="1"></ColumnDefinition>
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="1"></RowDefinition>
+										<RowDefinition Height="AUTO"></RowDefinition>
+										<RowDefinition Height="1"></RowDefinition>
+										<RowDefinition Height="AUTO"></RowDefinition>
+										<RowDefinition Height="1"></RowDefinition>
+										<RowDefinition Height="*"></RowDefinition>
+										<RowDefinition Height="1"></RowDefinition>
+									</Grid.RowDefinitions>
+									<Grid Grid.Column="1" Grid.Row="1" x:Name="rvr_fedbk_plc"></Grid>
+									<Grid Grid.Column="1" Grid.Row="3" x:Name="rvr_sncr_plc"></Grid>
+									<Grid Grid.Column="1" Grid.Row="5" x:Name="cncl_plc"></Grid>
+								</Grid>
+								<Grid Grid.Column="3" Grid.Row="1" x:Name="gps_mp_plc"></Grid>
+							</Grid>
+						</TabItem>
+					</TabControl>
+				</Grid>
+				<Expander Grid.Column="3" Grid.Row="1"  x:Name="putty_plc_expndr" ExpandDirection="Right" MouseEnter="putty_plc_MouseEnter" MouseLeave="putty_plc_MouseLeave" MaxWidth="410">
+					<Expander.Header>
+						                    <TextBlock Text="PuTTy Extended Module">
+							<TextBlock.LayoutTransform>
+								<RotateTransform Angle="270" />
+							</TextBlock.LayoutTransform>
+						</TextBlock>
+					</Expander.Header>
+					<Grid  x:Name="putty_plc"></Grid>
+				</Expander>
+			</Grid>
+			<Expander Grid.Column="1" Grid.Row="3" x:Name="cnc_stings_dck" Header="Connection Settings And Maintenance Dock">
+				<Grid x:Name="cnc_stings_plc"></Grid>
+			</Expander>
+		</Grid>
+	</Grid>
+</Controls:MetroWindow>

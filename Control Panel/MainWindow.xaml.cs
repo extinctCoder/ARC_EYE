@@ -19,10 +19,29 @@ namespace Control_Panel
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        public MainWindow()
+	{
+		private Control_Module controlModule = null;
+		public MainWindow()
         {
             InitializeComponent();
-        }
-    }
+			controlModule = new Control_Module();
+			this.rvr_cntrl_mdl.Children.Add(controlModule);
+		}
+
+		private void Window_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (controlModule != null)
+			{
+				this.controlModule.UserControl_KeyDown(e);
+			}
+		}
+
+		private void Window_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (controlModule != null)
+			{
+				this.controlModule.UserControl_KeyUp(e);
+			}
+		}
+	}
 }

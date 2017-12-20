@@ -1,0 +1,176 @@
+﻿<UserControl x:Class="ARC_EYE.SettingsModule"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ARC_EYE"
+             mc:Ignorable="d" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Expander Grid.Column="1" Grid.Row="1" Header="Raspberry Pi One" IsExpanded="True">
+            <Grid x:Name="pi1_plc">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" Content="IP Address :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="3" Content="Port Address One :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="5" Content="Port Address Two :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <TextBox Grid.Column="3" Grid.Row="1" x:Name="pi_1_ip" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="192.168.0.222"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="3" x:Name="pi_1_port_1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="8888"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="5" x:Name="pi_1_port_2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="8889"></TextBox>
+                <Button Grid.Column="1" Grid.Row="7" x:Name="pi_1_port_1_btn" Content="port one status" Click="pi_1_port_1_btn_Click"></Button>
+                <Button Grid.Column="3" Grid.Row="7" x:Name="pi_1_port_2_btn" Content="port two status" Click="pi_1_port_2_btn_Click"></Button>
+            </Grid>
+        </Expander>
+        <Expander Grid.Column="3" Grid.Row="1" Header="Web Camera One Settings" IsExpanded="True">
+            <Grid x:Name="wcam1_plc">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" Content="IP Address :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="3" Content="Port Address One :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="5" Content="File Directory :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <TextBox Grid.Column="3" Grid.Row="1" x:Name="webcam_1_ip" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="3" x:Name="webcam_1_port" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsEnabled="False"></TextBox>
+                <Button Grid.Column="3" Grid.Row="7" x:Name="webcam_1_btn" Content="web cam one status"></Button>
+            </Grid>
+        </Expander>
+        <Expander Grid.Column="5" Grid.Row="1" Header="Raspberry Pi Two" IsExpanded="True">
+            <Grid x:Name="pi2_plc">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" Content="IP Address :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="3" Content="Port Address One :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="5" Content="Port Address Two :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <TextBox Grid.Column="3" Grid.Row="1" x:Name="pi_2_ip" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="3" x:Name="pi_2_port_1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="5" x:Name="pi_2_port_2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <Button Grid.Column="1" Grid.Row="7" x:Name="pi_2_port_1_btn" Content="port one status"></Button>
+                <Button Grid.Column="3" Grid.Row="7" x:Name="pi_2_port_2_btn" Content="port two status"></Button>
+            </Grid>
+        </Expander>
+        <Expander Grid.Column="7" Grid.Row="1" Header="Web Camera Two Settings" IsExpanded="True">
+            <Grid  x:Name="wcam2_plc">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" Content="IP Address :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="3" Content="Port Address One :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="5" Content="File Directory :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <TextBox Grid.Column="3" Grid.Row="1" x:Name="webcam_2_ip" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="3" x:Name="webcam_2_port" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsEnabled="False"></TextBox>
+                <Button Grid.Column="3" Grid.Row="7" x:Name="webcam_2_btn" Content="web cam two status"></Button>
+            </Grid>
+        </Expander>
+        <Expander Grid.Column="9" Grid.Row="1" Header="Raspberry Pi Three" IsExpanded="True">
+            <Grid x:Name="pi3_plc">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" Content="IP Address :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="3" Content="Port Address One :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <Label Grid.Column="1" Grid.Row="5" Content="Port Address Two :" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+                <TextBox Grid.Column="3" Grid.Row="1" x:Name="pi_3_ip" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="192.168.0.222"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="3" x:Name="pi_3_port_1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="8890"></TextBox>
+                <TextBox Grid.Column="3" Grid.Row="5" x:Name="pi_3_port_2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <Button Grid.Column="1" Grid.Row="7" x:Name="pi_3_port_1_btn" Content="port one status" Click="pi_3_port_1_btn_Click"/>
+                <Button Grid.Column="3" Grid.Row="7" x:Name="pi_3_port_2_btn" Content="port two status"></Button>
+            </Grid>
+        </Expander>
+    </Grid>
+</UserControl>

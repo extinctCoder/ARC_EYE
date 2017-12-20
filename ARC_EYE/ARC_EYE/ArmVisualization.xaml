@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="ARC_EYE.ArmVisualization"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:ARC_EYE"
+			 xmlns:ht="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
+			 mc:Ignorable="d" >
+	<Grid>
+		<Expander Header="Arm Visualization" IsExpanded="True">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0"></ColumnDefinition>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+					<ColumnDefinition Width="0"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="0"></RowDefinition>
+					<RowDefinition Height="*"></RowDefinition>
+					<RowDefinition Height="0"></RowDefinition>
+				</Grid.RowDefinitions>
+				<Grid Grid.Column="1" Grid.Row="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"></RowDefinition>
+						<RowDefinition Height="*"></RowDefinition>
+						<RowDefinition Height="*"></RowDefinition>
+					</Grid.RowDefinitions>
+					<Button Grid.Column="1" Grid.Row="1" x:Name="initialize_btn" Click="initialize_btn_Click" Content="initialize 6 dof"></Button>
+				</Grid>
+				<Grid Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="5"></ColumnDefinition>
+								<ColumnDefinition Width="1.33*"></ColumnDefinition>
+								<ColumnDefinition Width="5"></ColumnDefinition>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="5"></RowDefinition>
+								<RowDefinition Height="*"></RowDefinition>
+								<RowDefinition Height="5"></RowDefinition>
+							</Grid.RowDefinitions>
+							<ht:HelixViewport3D Grid.Column="1" Grid.Row="1" ShowCoordinateSystem="True" ShowFrameRate="True" Camera="{ht:PerspectiveCamera 5.3,-12.3,3.3,-6.3,11,-6.6}">
+								<ht:SunLight/>
+								<ht:FileModelVisual3D x:Name="rvr_mdl" >
+									<ht:FileModelVisual3D.Transform>
+										<Transform3DGroup>
+											<RotateTransform3D>
+												<RotateTransform3D.Rotation>
+													<AxisAngleRotation3D Axis="1,0,0" x:Name="rtn_x"/>
+												</RotateTransform3D.Rotation>
+											</RotateTransform3D>
+											<RotateTransform3D>
+												<RotateTransform3D.Rotation>
+													<AxisAngleRotation3D Axis="0,1,0" x:Name="rtn_y"/>
+												</RotateTransform3D.Rotation>
+											</RotateTransform3D>
+											<RotateTransform3D>
+												<RotateTransform3D.Rotation>
+													<AxisAngleRotation3D Axis="0,0,1" x:Name="rtn_z"/>
+												</RotateTransform3D.Rotation>
+											</RotateTransform3D>
+											<TranslateTransform3D x:Name="axs_z"/>
+										</Transform3DGroup>
+									</ht:FileModelVisual3D.Transform>
+								</ht:FileModelVisual3D>
+								<ht:GridLinesVisual3D></ht:GridLinesVisual3D>
+							</ht:HelixViewport3D>
+						</Grid>
+			</Grid>
+		</Expander>
+	</Grid>
+	
+</UserControl>

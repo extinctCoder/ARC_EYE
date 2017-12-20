@@ -23,6 +23,7 @@ namespace Control_Panel
         public Control_Module()
         {
             InitializeComponent();
+			this.defultButtonState();
         }
 
         private void rvr_up_btn_Click(object sender, RoutedEventArgs e)
@@ -134,5 +135,201 @@ namespace Control_Panel
         {
 
         }
-    }
+
+		private void defultButtonState()
+		{
+			this.rvr_up_btn.Background = Brushes.HotPink;
+			this.rvr_lft_btn.Background = Brushes.HotPink;
+			this.rvr_rght_btn.Background = Brushes.HotPink;
+			this.rvr_dwn_btn.Background = Brushes.HotPink;
+			this.cmra_up_btn.Background = Brushes.HotPink;
+			this.cmra_lft_btn.Background = Brushes.HotPink;
+			this.cmra_rght_btn.Background = Brushes.HotPink;
+			this.cmra_dwn_btn.Background = Brushes.HotPink;
+			this.fst_dgre_lft.Background = Brushes.HotPink;
+			this.fst_dgre_rght.Background = Brushes.HotPink;
+			this.snd_dgre_up.Background = Brushes.HotPink;
+			this.snd_dgre_dwn.Background = Brushes.HotPink;
+			this.thrd_dgre_up.Background = Brushes.HotPink;
+			this.thrd_dgre_dwn.Background = Brushes.HotPink;
+			this.frth_dgre_up.Background = Brushes.HotPink;
+			this.frth_dgre_dwn.Background = Brushes.HotPink;
+			this.fifth_dgre_lft.Background = Brushes.HotPink;
+			this.fifth_dgre_rght.Background = Brushes.HotPink;
+			this.clw_dgre_on.Background = Brushes.HotPink;
+			this.clw_dgre_Off.Background = Brushes.HotPink;
+		}
+
+		public void UserControl_KeyUp(KeyEventArgs e)
+		{
+			if (e.Key == Key.W)
+			{
+				this.rvr_up_btn.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.A)
+			{
+				this.rvr_lft_btn.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.D)
+			{
+				this.rvr_rght_btn.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.S)
+			{
+				this.rvr_dwn_btn.Background = Brushes.HotPink;
+			}
+
+			if (e.Key == Key.Up)
+			{
+				this.cmra_up_btn.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.Left)
+			{
+				this.cmra_lft_btn.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.Right)
+			{
+				this.cmra_rght_btn.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.Down)
+			{
+				this.cmra_dwn_btn.Background = Brushes.HotPink;
+			}
+
+			if (e.Key == Key.F)
+			{
+				this.fst_dgre_lft.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.C)
+			{
+				this.fst_dgre_rght.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.G)
+			{
+				this.snd_dgre_up.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.V)
+			{
+				this.snd_dgre_dwn.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.H)
+			{
+				this.thrd_dgre_up.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.B)
+			{
+				this.thrd_dgre_dwn.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.J)
+			{
+				this.frth_dgre_up.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.N)
+			{
+				this.frth_dgre_dwn.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.K)
+			{
+				this.fifth_dgre_lft.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.M)
+			{
+				this.fifth_dgre_rght.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.L)
+			{
+				this.clw_dgre_on.Background = Brushes.HotPink;
+			}
+			else if (e.Key == Key.OemComma)
+			{
+				this.clw_dgre_Off.Background = Brushes.HotPink;
+			}
+		}
+
+		public void UserControl_KeyDown(KeyEventArgs e)
+		{
+			if (e.Key == Key.W)
+			{
+				this.rvr_up_btn.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.A)
+			{
+				this.rvr_lft_btn.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.D)
+			{
+				this.rvr_rght_btn.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.S)
+			{
+				this.rvr_dwn_btn.Background = Brushes.BlueViolet;
+			}
+
+			if (e.Key == Key.Up)
+			{
+				this.cmra_up_btn.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.Left)
+			{
+				this.cmra_lft_btn.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.Right)
+			{
+				this.cmra_rght_btn.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.Down)
+			{
+				this.cmra_dwn_btn.Background = Brushes.BlueViolet;
+			}
+
+			if (e.Key == Key.F)
+			{
+				this.fst_dgre_lft.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.C)
+			{
+				this.fst_dgre_rght.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.G)
+			{
+				this.snd_dgre_up.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.V)
+			{
+				this.snd_dgre_dwn.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.H)
+			{
+				this.thrd_dgre_up.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.B)
+			{
+				this.thrd_dgre_dwn.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.J)
+			{
+				this.frth_dgre_up.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.N)
+			{
+				this.frth_dgre_dwn.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.K)
+			{
+				this.fifth_dgre_lft.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.M)
+			{
+				this.fifth_dgre_rght.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.L)
+			{
+				this.clw_dgre_on.Background = Brushes.BlueViolet;
+			}
+			else if (e.Key == Key.OemComma)
+			{
+				this.clw_dgre_Off.Background = Brushes.BlueViolet;
+			}
+		}
+	}
 }
